@@ -1,0 +1,72 @@
+# Dépendances
+
+node_modules/
+
+# Logs
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Fichiers système
+
+.DS_Store
+Thumbs.db
+
+# Fichiers d'environnement
+
+.env
+.env.*
+!.env.example
+
+# Dossiers de build
+
+dist/
+build/
+
+# Cache
+
+.cache/
+.next/
+.nuxt/
+
+# Couverture de tests
+
+coverage/
+
+# Fichiers temporaires
+
+tmp/
+temp/
+
+# IDE / éditeurs
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+
+Desktop.ini
+
+# Fichiers npm spécifiques
+
+package-lock.json
+
+# Debug
+
+*.pid
+*.seed
+*.pid.lock
+
+# TypeScript (si utilisé)
+
+*.tsbuildinfo
+
+# Optional: fichiers de configuration locaux
+
+.local
