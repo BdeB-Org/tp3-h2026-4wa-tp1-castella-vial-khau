@@ -1,3 +1,4 @@
+//Fait par Brandon Khau
 const db = require("../Config/database");
 
 // Controller Get
@@ -18,7 +19,7 @@ exports.addAvis = (req,res) => {
     console.log ("Insertion:", idAnimal, typeSignalement, date, photo, description) ;
 
     db.run(
-        "INSERT INTO Avis(Id_animal, Type_Signalement, Date, Photo, Description) VALUES (?,?)",
+        "INSERT INTO Avis(idAnimal, typeSignalement, date, photo, description) VALUES (?,?,?,?,?)",
         [idAnimal, typeSignalement, date, photo, description],
         function(err) {
             if(err) {
@@ -49,7 +50,7 @@ exports.updateAvis = (req,res) => {
 
             res.json({
                 message:"Avis modifié",
-                id: idAvis
+                id: id
             });
         }
     );
@@ -57,7 +58,7 @@ exports.updateAvis = (req,res) => {
 
 // Controller Delete
 exports.deleteAvis = (req,res) => {
-    const id = req.params.idAvis;
+    const id = req.params.id;
 
     if (!id) {
         return res.status(400).json({message: "ID manquant"});
@@ -76,7 +77,7 @@ exports.deleteAvis = (req,res) => {
                 return res.status(404).json({message: "Aucun avis trouvé avec cet ID"})
             }
 
-            res.json({message: "Avis supprimé", id:idAvis});
+            res.json({message: "Avis supprimé", id:id});
         }
     );
 };
