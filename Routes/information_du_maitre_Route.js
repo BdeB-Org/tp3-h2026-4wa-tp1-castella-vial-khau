@@ -1,23 +1,13 @@
-const express = require("express");
 
+
+const express = require('express');
 const router = express.Router();
+const ctrl = require('../Controllers/information_du_maitre_Controllers');
+const authMiddleware = require('../middleware/authMiddleware');
 
-const infoMaitreController = require("../Controllers/information_du_maitre_Controllers");
-
-//Route Get
-router.get("/Information_du_maitre", infoMaitreController.getMaitre);
-
-router.get("/Information_du_maitre/:id", infoMaitreController.getMaitre);
-
-//Route Post
-router.post("/Information_du_maitre", infoMaitreController.addMaitre);
-
-router.post("/Information_du_maitre/:id", infoMaitreController.addMaitre);
-
-//Route Update
-router.put("/Information_du_maitre/:id", infoMaitreController.updateMaitre);
-
-//Route Delete
-router.delete("/Information_du_maitre/:id", infoMaitreController.deleteMaitre);
+router.get('/', authMiddleware, ctrl.getMaitre);
+router.get('/:id', authMiddleware, ctrl.getEtudiantById);
+router.put('/:id', authMiddleware, ctrl.updateMaitre);
+router.delete('/:id', authMiddleware, ctrl.deleteMaitre);
 
 module.exports = router;
