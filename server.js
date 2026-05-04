@@ -1,55 +1,23 @@
-const express = require("express");
-
+const express = require('express');
+const path = require('path');
 const app = express();
 
+// Initialise la BD
+require('./Config/database');
+
 app.use(express.json());
+app.use(express.static('public'));
 
-// Pour Activités
-const activitesRoutes = require("./Routes/activites_Route");
+const authRoutes = require('./Routes/authRoutes');
 
-app.use("/", activitesRoutes);
+app.use('/api/auth', authRoutes);
 
-app.get ("/", (req,res)=> {
-    res.send("Bienvenue sur l'API des activites !");
+// Redirection par défaut
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login.html'));
 });
 
-// Pour Avis
-const avisRoutes = require("./Routes/avis_Route");
-
-app.use("/", avisRoutes);
-
-app.get ("/", (req,res)=> {
-    res.send("Bienvenue sur l'API du refuge !");
-});
-
-// Pour Information du maître
-const infosMaitreRoutes = require("./Routes/information_du_maitre_Route");
-
-app.use("/", infosMaitreRoutes);
-
-// Pour Animal
-const animalRoutes = require("./Routes/informations_de_lanimal_Route");
-
-app.use("/", animalRoutes);
-
-app.get("/", (req,res)=> {
-    res.send("Bienvenu sur l'API des informations de l'animal !");
-})
-
-//----Pour table infos médicales--------------------------------------------------------------------------
-const infosMedicalesRoutes = require("./Routes/informations_medicales_Route");
-
-app.use("/", infosMedicalesRoutes);
-
-
-
-//----Pour table infos cliniques---------------------------------------------------------------------
-const infosCliniqueRoutes = require("./Routes/informations_clinique_Route");
-
-app.use("/", infosCliniqueRoutes);
-
-
-//-----doit rester à la fin
-app.listen(3000, ()=> {
-    console.log("Serveur lancé sur le port 3000");
+const PORT = 3000;
+app.listen(PORT, () => {
+    console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });
