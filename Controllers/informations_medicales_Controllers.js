@@ -11,7 +11,7 @@ exports.getInfosMedicales = (req, res) => {
 
 //----controller POST--------------------------------
 exports.addInfosMedicales = (req, res) => {
-    const const_clinique = req.body.const_clinique;  //---------est-ce que je dois la mettre?
+    const const_clinique = req.body.const_clinique;
     const Medicaments = req.body.Medicaments;
     const Maladies = req.body.Maladies;
     const Blessures = req.body.Blessures;
