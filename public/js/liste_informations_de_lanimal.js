@@ -2,7 +2,7 @@
 
 requireAuth();
 
-const tbody = document.getElementById('tbodyListeAnimaux');
+const tbody = document.getElementById('tbodyAnimaux');
 const message = document.getElementById('message');
 
 function showMessage(text, isError = false) {
@@ -22,7 +22,7 @@ function escapeHtml(value) {
 async function chargerAnimaux() {   //-----appelle l'API pour récupérer les données des animaux------
     try {
 
-        const res = await apiFetch('/api/animaux');   //---- à revoir
+        const res = await apiFetch('/api/Animal');  
         const data = await res.json();
 
         if (!res.ok) throw new Error(data.message || "Erreur lors du chargement");
