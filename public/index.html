@@ -7,9 +7,9 @@
 </head>
 
 <body>
-   
     
         <!----------Section Sandra : informations de l'animal   ------------------------------------------------->    
+
     <div class="container">
         <div class="topbar">
             <div>
@@ -27,18 +27,35 @@
 
         <h2>Entrer les informations de l'animal</h2>
         <form id="formAjout">
-            <input type="text" id="nom" placeholder="Nom" required>
-            <input type="text" id="programme" placeholder="Programme" required>
+            <input type="text" id="informationsMaitre" placeholder="ID du propriétaire**">
+            <input type="text" id="noCollier" placeholder="numéro de médaille">
+            <input type="text" id="nom" placeholder="nom de l'animal">
+            <input type="text" id="type" placeholder="chien, chat, lapin, etc...">
+            <input type="text" id="race" placeholder="race de l'animal">
+            <input type="text" id="genre" placeholder="genre">
+            <input type="text" id="age" placeholder="âge">
+            <input type="text" id="taille" placeholder="taille de grandeur en cm">
+            <input type="text" id="poids" placeholder="poids en kg">
+            <input type="text" id="infoMedicales" placeholder="ID infos médicales **">
+
             <button type="submit">Ajouter</button>
         </form>
 
-        <h2>Ensemble des étudiants</h2>
+        <h2>Ensemble des animaux de la base de données</h2>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Maître</th>
                     <th>Nom</th>
-                    <th>Programme</th>
+                    <th>Collier</th>
+                    <th>Type</th>
+                    <th>Race</th>
+                    <th>Genre</th>
+                    <th>Âge</th>
+                    <th>Taille</th>
+                    <th>Poids</th>
+                    
                     <th>Actions</th>
                 </tr>
             </thead>
