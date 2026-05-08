@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des animaux - Sandra</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- -----Page liste des animaux --- Sandra ----------------------  -->
+    <div class="container">
+        <div class="topbar">
+            <div>
+                <h1>registre des animaux</h1>
+                <p class="small">Modifier, consulter ou supprimer une fiche</p>
+            </div>
+            <div class="actions">
+                <a class="btn-link" href="/index.html">Retour à l'ajout</a>
+                <button class="secondary" onclick="logout()">Déconnexion</button>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Maître</th>
+                    <th>Nom</th>
+                    <th>Collier</th>
+                    <th>Type</th>
+                    <th>Race</th>
+                    <th>Genre</th>
+                    <th>Âge</th>
+                    <th>Taille</th>
+                    <th>Poids</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyListeAnimaux"></tbody>
+        </table>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/liste_informations_de_lanimal.js"></script>
+</body>
+</html>
