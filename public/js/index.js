@@ -123,7 +123,7 @@ async function chargerAnimaux() {
                 <td>${animal.taille} cm</td>
                 <td>${animal.poids} kg</td>
                 <td>
-                    <a class="btn-link" href="/edit_animal.html?id=${animal.idAnimal}">Modifier</a>
+                    <a class="btn-link" href="/edit_informations_de_lanimal.html?id=${animal.idAnimal}">Modifier</a>
                     <button class="danger" onclick="supprimerAnimal(${animal.idAnimal})">Supprimer</button>
                 </td>
             `;

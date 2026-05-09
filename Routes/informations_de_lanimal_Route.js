@@ -5,9 +5,9 @@ const router = express.Router();
 const animalControllers = require("../Controllers/informations_de_lanimal_Controllers");
 
 //Route Get
-router.get("/Animal", animalControllers.getAnimal);
+router.get("/Animal", animalControllers.getAnimals);   //--- tous les animaux
 
-router.get("/Animal/:id", animalControllers.getAnimal);
+router.get("/Animal/:id", animalControllers.getAnimalById);  //--- 1 animal
 
 //Route Post
 router.post("/Animal", animalControllers.addAnimal);

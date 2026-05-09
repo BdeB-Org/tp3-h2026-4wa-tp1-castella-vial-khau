@@ -1,10 +1,21 @@
 //Fait par Brandon Khau TP2 ---------Sandra Castella pour le TP3
 const db = require("../Config/database");
 
-//Controller Get
-exports.getAnimal = (req,res) => {
-    db.all("SELECT * FROM informationsAnimal", (err,rows)=> {
+//-----Controller Get  ----- READ tous les animaux
+exports.getAnimals = (req, res) => {
+    db.all("SELECT * FROM InformationsAnimal", (err, rows) => {
+        if (err) return res.status(500).json({ erreur: err.message });
         res.json(rows);
+    });
+};
+
+//------Controller Get - un seul animal par ID
+exports.getAnimalById = (req, res) => {
+    const id = req.params.id;
+    db.get("SELECT * FROM InformationsAnimal WHERE idAnimal=?", [id], (err, row) => {
+        if (err) return res.status(500).json({ erreur: err.message });
+        if (!row) return res.status(404).json({ message: "Animal non trouvé" });
+        res.json(row);
     });
 };
 
