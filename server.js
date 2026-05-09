@@ -14,12 +14,8 @@ app.use('/api/auth', authRoutes);
 
 //-----connexion route informations de l'animal ---- Sandra
 const animalRoutes = require("./Routes/informations_de_lanimal_Route");
+app.use("/api", animalRoutes);
 
-app.use("/", animalRoutes);
-
-app.get("/", (req,res)=> {
-    res.send("Bienvenu sur l'API");
-})
 //----------------------------------------------
 
 
