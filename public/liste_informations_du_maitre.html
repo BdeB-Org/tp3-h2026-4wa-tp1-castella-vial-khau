@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des animaux - Sandra</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- -----Page liste des propriétaires - Iléona ----------------------  -->
+    <div class="container">
+        <div class="topbar">
+            <div>
+                <h1>registre des propriétaires</h1>
+                <p class="small">Modifier, consulter ou supprimer une fiche</p>
+            </div>
+            <div class="actions">
+                <a class="btn-link" href="/index.html">Retour à l'ajout</a>
+                <button class="secondary" onclick="logout()">Déconnexion</button>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>No. Téléphone</th>
+                    <th>Courriel</th>
+                    <th>Âge</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyMaitres"></tbody>
+        </table>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/liste_informations_du_maitre.js"></script>
+</body>
+</html>

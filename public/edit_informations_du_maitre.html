@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un propriétaire</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container" style="max-width: 700px;">
+        <div class="topbar">
+            <div>
+                <h1>Modifier un propriétaire</h1>
+            </div>
+            <div class="actions">
+                <a class="btn-link" href="/liste_informations_du_maitre.html">Retour à la liste</a>
+                <button class="secondary" onclick="logout()">Déconnexion</button>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <form id="formEdit">
+            <input type="text" id="informationsAnimal" placeholder="ID de l'animal**" required>
+            <input type="text" id="prenom" placeholder="prénom du propriétaire" required>
+            <input type="text" id="nom" placeholder="nom du propriétaire" required>
+            <input type="text" id="telephone" placeholder="numéro de téléphone">
+            <input type="text" id="courriel" placeholder="courriel" required>
+            <input type="text" id="age" placeholder="âge">
+            <input type="text" id="adresse" placeholder="adresse">
+            <input type="text" id="ville" placeholder="ville">
+            <button type="submit">Enregistrer les modifications</button>
+        </form>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/edit_informations_du_maitre.js"></script>
+</body>
+</html>

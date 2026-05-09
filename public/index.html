@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Registre des animaux</title>
@@ -7,8 +8,8 @@
 </head>
 
 <body>
-    
-        <!----------Section Sandra : informations de l'animal   ------------------------------------------------->    
+
+    <!----------Section Sandra : informations de l'animal   ------------------------------------------------->
 
     <div class="container">
         <div class="topbar">
@@ -65,13 +66,14 @@
 
     <!-- -------Section Iléona : informations du maitre-------------- -->
     <div class="container">
+
         <div class="topbar">
             <div>
-                <h1>Infos du maitre</h1>
+                <h1>Informations du maitre</h1>
                 <p class="small">Ajout et affichage dans un tableau</p>
             </div>
             <div class="actions">
-                <a class="btn-link" href="/liste.html">Voir la liste complète</a>
+                <a class="btn-link" href="/liste_informations_du_maitre.html">Voir la liste complète</a>
                 <button class="secondary" onclick="logout()">Déconnexion</button>
             </div>
         </div>
@@ -79,28 +81,38 @@
         <div id="message"></div>
 
 
+        <h2>Entrer les informations du propriétaire</h2>
+        <form id="formAjoutMaitre">
+            <input type="text" id="informationsAnimal" placeholder="ID de l'animal**">
+            <input type="text" id="prenom" placeholder="prénom du propriétaire">
+            <input type="text" id="nom" placeholder="nom du propriétaire">
+            <input type="text" id="telephone" placeholder="numéro de téléphone">
+            <input type="text" id="courriel" placeholder="courriel">
+            <input type="text" id="age" placeholder="âge">
+            <input type="text" id="adresse" placeholder="adresse">
+            <input type="text" id="ville" placeholder="ville">
 
-        <h2>Entrer les informations</h2>
-        <form id="formAjout">
-            <input type="text" id="nom" placeholder="Nom" required>
-            <input type="text" id="programme" placeholder="Programme" required>
             <button type="submit">Ajouter</button>
         </form>
 
-        <h2>Ensemble des étudiants</h2>
+        <h2>Ensemble des animaux de la base de données</h2>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Prénom</th>
                     <th>Nom</th>
-                    <th>Programme</th>
-                    <th>Actions</th>
+                    <th>No. Téléphone</th>
+                    <th>Courriel</th>
+                    <th>Âge</th>
+                    <th>Adresse</th>
+                    <th>Ville</th>
                 </tr>
             </thead>
-            <tbody id="tbodyEtudiants"></tbody>
+            <tbody id="tbodyAnimaux"></tbody>
         </table>
     </div>
- 
+
 
 
     <!-- -----------Section Brandon : les avis ------------------- -->
@@ -116,7 +128,8 @@
         </div>
 
 
-    <script src="js/auth.js"></script>
-    <script src="js/index.js"></script>
+        <script src="js/auth.js"></script>
+        <script src="js/index.js"></script>
 </body>
+
 </html>
