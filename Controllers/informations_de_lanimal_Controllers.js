@@ -1,4 +1,4 @@
-//Fait par Brandon Khau
+//Fait par Brandon Khau TP2 ---------Sandra Castella pour le TP3
 const db = require("../Config/database");
 
 //Controller Get
@@ -40,13 +40,13 @@ exports.addAnimal = (req,res) => {
     );
 };
 
-//Controller Update
+//-----Controller Update-----(modifier)
 exports.updateAnimal = (req,res) => {
-    const id = req.params.idAnimal;
+    const id = req.params.id;
     const {informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids, infoMedicales} = req.body;
     
     db.run(
-        "UPDATE informationsAnimal SET informationsMaitre=?, noCollier=?, nom=?, type=?, race=?, genre=?, age=?, taille=?, poids=?, infoMedicales=?",
+        "UPDATE InformationsAnimal SET informationsMaitre=?, noCollier=?, nom=?, type=?, race=?, genre=?, age=?, taille=?, poids=?, infoMedicales=? WHERE idAnimal=?",
         [informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids, infoMedicales, id],
         function(err) {
             if(err) {

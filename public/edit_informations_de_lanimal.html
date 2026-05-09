@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un animal</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container" style="max-width: 700px;">
+        <div class="topbar">
+            <div>
+                <h1>Modifier un animal</h1>
+            </div>
+            <div class="actions">
+                <a class="btn-link" href="/liste_informations_de_lanimal.html">Retour à la liste</a>
+                <button class="secondary" onclick="logout()">Déconnexion</button>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <form id="formEdit">
+            <input type="text" id="informationsMaitre" placeholder="Informations du maître" required>
+            <input type="text" id="noCollier" placeholder="Numéro de collier" required>
+            <input type="text" id="nom" placeholder="Nom de l'animal" required>
+            <input type="text" id="type" placeholder="Type (Chien, Chat...)" required>
+            <input type="text" id="race" placeholder="Race" required>
+            <input type="text" id="genre" placeholder="Genre (Mâle, Femelle)" required>
+            <input type="number" id="age" placeholder="Âge" required>
+            <input type="number" id="taille" placeholder="Taille (cm)" required>
+            <input type="number" id="poids" placeholder="Poids (kg)" required>
+            <input type="text" id="infoMedicales" placeholder="Informations médicales">
+            <button type="submit">Enregistrer les modifications</button>
+        </form>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/edit_animal.js"></script>
+</body>
+</html>
