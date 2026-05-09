@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des avis de recherche</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div>
+                <h1>Liste des avis</h1>
+                <p class="small">Modifier et supprimer des avis existants</p>
+            </div>
+            <div class="actions">
+                <a href="/indexAvis.html" class="btn-link">Retour à l'ajout</a>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Avis</th>
+                    <th>Id Animal</th>
+                    <th>Type de signalement</th>
+                    <th>Date</th>
+                    <th>Photo</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyAvis"></tbody>
+        </table>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/listeAvis.js"></script>
+</body>
+</html>

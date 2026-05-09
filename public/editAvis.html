@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier un avis</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container" style="max-width: 700px;">
+        <div class="topbar">
+            <div>
+                <h1>Modifier un avis</h1>
+            </div>
+            <div class="actions">
+                <a href="/listeAvis.html" class="btn-link">Retour à la liste</a>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <form id="formEdit">
+            <input type="text" id="idAnimal" placeholder="ID de l'animal" required>
+            <input type="text" id="typeSignalement" placeholder="Type de signalement" required>
+            <input type="text" id="date" placeholder="Date de la disparition" required>
+            <input type="image" id="photo" placeholder="Photo de l'animal" >
+            <input type="text" id="description" placeholder="Description de l'animal">
+            <button type="submit">Enregistrer les modifications</button>
+        </form>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/editAvis.js"></script>
+</body>
+</html>

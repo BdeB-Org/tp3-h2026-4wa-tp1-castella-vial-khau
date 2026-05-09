@@ -5,18 +5,20 @@ const router = express.Router();
 
 const avisController = require("../Controllers/avis_Controllers");
 
-//Route Get
-router.get("/Avis", avisController.getAvis);
+const authMiddleware = require('../middleware/authMiddleware');
 
-router.get("/Avis/:id", avisController.getAvis);
+//Route Get
+router.get("/", authMiddleware, avisController.getAvis);
+
+router.get("/:idAvis",authMiddleware, avisController.getAvisByID);
 
 //Route Post
-router.post("/Avis", avisController.addAvis);
+router.post("/", authMiddleware, avisController.addAvis);
 
 //Route Update
-router.put("/Avis/:id", avisController.updateAvis);
+router.put("/:idAvis", authMiddleware, avisController.updateAvis);
 
 //Route Delete
-router.delete("/Avis/:id", avisController.deleteAvis);
+router.delete("/:idAvis", authMiddleware, avisController.deleteAvis);
 
 module.exports = router;

@@ -18,6 +18,8 @@ app.use("/api", animalRoutes);
 
 //----------------------------------------------
 
+const avisRoutes = require("./Routes/avis_Route")
+app.use("/api/avis", avisRoutes)
 
 // Redirection par défaut
 app.get('/', (req, res) => {
