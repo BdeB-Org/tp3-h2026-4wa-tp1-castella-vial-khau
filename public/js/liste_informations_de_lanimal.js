@@ -28,6 +28,11 @@ async function chargerAnimaux() {   //-----appelle l'API pour récupérer les do
         if (!res.ok) throw new Error(data.message || "Erreur lors du chargement");
 
         tbody.innerHTML = '';
+//--------------si aucune donnée dispo----
+                if (data.length === 0) {
+            tbodyAnimaux.innerHTML = '<tr><td colspan="11">Aucun animal trouvé</td></tr>';
+            return;
+        }
 
         data.forEach(animal => {
             const tr = document.createElement('tr');

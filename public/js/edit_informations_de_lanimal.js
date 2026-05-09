@@ -48,6 +48,19 @@ form.addEventListener('submit', async (e) => {
         poids: document.getElementById('poids').value.trim(),
         infoMedicales: document.getElementById('infoMedicales').value.trim()
     };
+//-------valider les champs obligatoires-----
+        if (!payload.informationsMaitre || !payload.noCollier || !payload.nom || 
+        !payload.type || !payload.race || !payload.genre || 
+        !payload.age || !payload.taille || !payload.poids) {
+        showMessage('Veuillez remplir tous les champs obligatoires', true);
+        return;
+    }
+
+    //------poids age et taille en nombre-----
+        if (isNaN(payload.age) || isNaN(payload.taille) || isNaN(payload.poids)) {
+        showMessage('L\'âge, la taille et le poids doivent être des nombres', true);
+        return;
+    }
 
     try {
         const res = await apiFetch('/api/Animal/' + id, {

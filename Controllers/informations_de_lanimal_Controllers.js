@@ -81,7 +81,7 @@ exports.deleteAnimal = (req,res) => {
     }
 
     db.run(
-        "DELETE FROM informationsAnimal WHERE idAnimal=?",
+        "DELETE FROM InformationsAnimal WHERE idAnimal=?",
         [id],
         function(err) {
             if(err){
