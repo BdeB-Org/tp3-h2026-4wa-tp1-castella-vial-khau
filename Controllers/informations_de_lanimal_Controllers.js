@@ -30,13 +30,12 @@ exports.addAnimal = (req,res) => {
     const age = req.body.age;
     const taille = req.body.taille;
     const poids = req.body.poids;
-    const infoMedicales = req.body.infoMedicales;
 
-    console.log ("Insertion", informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids, infoMedicales);
+    console.log ("Insertion", informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids);
 
     db.run(
         "INSERT INTO InformationsAnimal(informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids, infoMedicales) VALUES (?,?,?,?,?,?,?,?,?,?)",
-        [informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids, infoMedicales],
+        [informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids ],
         function(err) {
             if(err) {
                 console.log(err);
@@ -54,11 +53,11 @@ exports.addAnimal = (req,res) => {
 //-----Controller Update-----(modifier)
 exports.updateAnimal = (req,res) => {
     const id = req.params.id;
-    const {informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids, infoMedicales} = req.body;
+    const {informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids} = req.body;
     
     db.run(
         "UPDATE InformationsAnimal SET informationsMaitre=?, noCollier=?, nom=?, type=?, race=?, genre=?, age=?, taille=?, poids=?, infoMedicales=? WHERE idAnimal=?",
-        [informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids, infoMedicales, id],
+        [informationsMaitre, noCollier, nom, type, race, genre, age, taille, poids, id],
         function(err) {
             if(err) {
                 return res.status(500).json({erreur: err.message});
