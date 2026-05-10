@@ -11,8 +11,8 @@ exports.getAvis = (req,res) => {
 
 // Controller Get
 exports.getAvisByID = (req,res) => {
-    db.all("SELECT * FROM Avis WHERE idAvis = ?",
-        [req.params.id],
+    db.get("SELECT * FROM Avis WHERE idAvis = ?",
+        [req.params.idAvis],
         (err, row) => {
             if (err) return res.status(500).json({ message: err.message });
             if (!row) return res.status(404).json({ message: 'Avis non trouvé' });
@@ -44,11 +44,12 @@ exports.addAvis = (req,res) => {
 
 // Controller Update
 exports.updateAvis = (req,res) => {
+    const idAvis = req.params.idAvis;
     const {idAnimal, typeSignalement, date, photo, description} = req.body;
 
     db.run(
         "UPDATE Avis SET idAnimal = ?, typeSignalement = ?, date = ?, photo = ?, description = ? WHERE idAvis = ?",
-        [idAnimal, typeSignalement, date, photo, description, req.params.idAvis],
+        [idAnimal, typeSignalement, date, photo, description, idAvis],
         function(err) {
             if(err) {
                 return res.status(500).json({erreur: err.message});
@@ -57,6 +58,7 @@ exports.updateAvis = (req,res) => {
 
             res.json({
                 message:"Avis modifié",
+                idAvis:idAvis
             });
         }
     );

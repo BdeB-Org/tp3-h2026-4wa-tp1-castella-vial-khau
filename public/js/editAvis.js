@@ -60,6 +60,8 @@ form.addEventListener("submit", async (e) => {
 
 if (!idAvis) {
     showMessage('ID avis manquant', true);
+    console.log(window.location.href);
+    console.log(idAvis);
 } else {
     chargerAvis();
 }

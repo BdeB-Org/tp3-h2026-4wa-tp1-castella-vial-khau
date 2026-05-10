@@ -33,7 +33,7 @@ async function chargerAvis() {
                 <td>${escapeHtml(avis.photo)}</td>
                 <td>${escapeHtml(avis.description)}</td>
                 <td>
-                    <a class="btn-link" href="/editAvis.html?id=${avis.idAvis}">Modifier</a>
+                    <a class="btn-link" href="/editAvis.html?idAvis=${avis.idAvis}">Modifier</a>
                     <button class="danger" onclick="supprimerAvis(${avis.idAvis})">Supprimer</button>
                 </td>
             `;
@@ -45,11 +45,11 @@ async function chargerAvis() {
     }
 }
 
-async function supprimerAvis(id) {
+async function supprimerAvis(idAvis) {
     if (!confirm('Voulez-vous vraiment supprimer cet avis ?')) return;
 
     try {
-        const res = await apiFetch('/api/avis' + id, {
+        const res = await apiFetch('/api/avis/' + idAvis, {
             method: 'DELETE'
         });
 
