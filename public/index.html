@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <div id="message"></div>
+        <div id="messageAnimal"></div>
 
 
         <h2>Entrer les informations de l'animal</h2>
@@ -85,12 +85,13 @@
         <form id="formAjoutMaitre">
             <input type="text" id="informationsAnimal" placeholder="ID de l'animal**">
             <input type="text" id="prenom" placeholder="prénom du propriétaire">
-            <input type="text" id="nom" placeholder="nom du propriétaire">
+            <input type="text" id="nomMaitre" placeholder="nom du propriétaire">
             <input type="text" id="telephone" placeholder="numéro de téléphone">
             <input type="text" id="courriel" placeholder="courriel">
-            <input type="text" id="age" placeholder="âge">
+            <input type="text" id="ageMaitre" placeholder="âge">
             <input type="text" id="adresse" placeholder="adresse">
             <input type="text" id="ville" placeholder="ville">
+            <!-- j'ai changé les ID nom et age car j'ai aussi ces ID -------------------------------->
 
             <button type="submit">Ajouter</button>
         </form>
@@ -109,7 +110,8 @@
                     <th>Ville</th>
                 </tr>
             </thead>
-            <tbody id="tbodyAnimaux"></tbody>
+            <tbody id="tbodyMaitres"></tbody>    
+            <!-- jai changé le nom de ton id ici, ca rentre en conflit avec le mien ------------------------>
         </table>
     </div>
 
@@ -124,6 +126,7 @@
             </div>
             <div class="actions">
                 <a class="btn-link" href="/indexAvis.html">Voir la liste complète</a>
+            </div>
             </div>
         </div>
 
