@@ -27,7 +27,6 @@ async function chargerAnimal() {
         document.getElementById('age').value = data.age;
         document.getElementById('taille').value = data.taille;
         document.getElementById('poids').value = data.poids;
-        document.getElementById('infoMedicales').value = data.infoMedicales;
     } catch (err) {
         showMessage(err.message, true);
     }
@@ -46,7 +45,6 @@ form.addEventListener('submit', async (e) => {
         age: document.getElementById('age').value.trim(),
         taille: document.getElementById('taille').value.trim(),
         poids: document.getElementById('poids').value.trim(),
-        infoMedicales: document.getElementById('infoMedicales').value.trim()
     };
 //-------valider les champs obligatoires-----
         if (!payload.informationsMaitre || !payload.noCollier || !payload.nom || 

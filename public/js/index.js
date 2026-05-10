@@ -66,7 +66,6 @@ formAjoutAnimal.addEventListener('submit', async (e) => {
         age: document.getElementById('age').value.trim(),
         taille: document.getElementById('taille').value.trim(),
         poids: document.getElementById('poids').value.trim(),
-        infoMedicales: document.getElementById('infoMedicales').value.trim()
     };
 //-------affiche un message si on soumet un formulaire vide : remplir les champs obligatoires------
         if (!payload.informationsMaitre || !payload.noCollier || !payload.nom || 
