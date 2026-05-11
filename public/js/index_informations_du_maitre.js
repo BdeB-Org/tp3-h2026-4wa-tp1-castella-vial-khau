@@ -2,12 +2,12 @@ requireAuth();
 
 //------Section Iléona informations du maitre -------------------------
 
-const messageAnimal = document.getElementById('messageMaitre');
-const formAjoutAnimal = document.getElementById('formAjoutMaitres');
-const tbodyAnimaux = document.getElementById('tbodyMaitres');
+const messageMaitre = document.getElementById('messageMaitre');
+const formAjoutMaitre = document.getElementById('formAjoutMaitres');
+const tbodyMaitres = document.getElementById('tbodyMaitres');
 
 function showMessage(text, isError = false) {
-    messageAnimal.innerHTML = `<div class="message ${isError ? 'error' : ''}">${text}</div>`;
+    messageMaitre.innerHTML = `<div class="message ${isError ? 'error' : ''}">${text}</div>`;
 }
 
 function escapeHtml(value) {
@@ -19,7 +19,7 @@ function escapeHtml(value) {
         .replaceAll("'", '&#039;');
 }
 
-async function chargerAnimaux() {
+async function chargerMaitres() {
     try {
         const res = await apiFetch('/api/Maitres');
         const data = await res.json();
