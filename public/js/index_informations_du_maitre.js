@@ -55,6 +55,7 @@ formAjoutMaitre.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const payload = {
+        informationsAnimal: document.getElementById('informationsAnimal').value.trim(),
         Prenom: document.getElementById('prenom').value.trim(),
         Nom: document.getElementById('nomMaitre').value.trim(),
         NoTelephone: document.getElementById('telephone').value.trim(),
@@ -64,12 +65,12 @@ formAjoutMaitre.addEventListener('submit', async (e) => {
         Ville: document.getElementById('ville').value.trim(),
     };
 //-------affiche un message si on soumet un formulaire vide : remplir les champs obligatoires------
-        if (!payload.Prenom || !payload.Nom || !payload.Courriel) {
-        showMessage('Veuillez remplir les champs prénom, nom et courriel', true);
+        if (!payload.informationsAnimal || !payload.Prenom || !payload.Nom || !payload.Courriel) {
+        showMessage('Veuillez remplir les champs ID de l\'animal, prénom, nom et courriel', true);
         return;
     }
 //---------valide que l'âge et le téléphone sont des nombres----
-        if (isNaN(payload.Age) || isNaN(payload.NoTelephone)) {
+        if ((payload.Age && isNaN(payload.Age)) || (payload.NoTelephone && isNaN(payload.NoTelephone))) {
         showMessage('L\'âge et le téléphone doivent être des nombres', true);
         return;
     }
