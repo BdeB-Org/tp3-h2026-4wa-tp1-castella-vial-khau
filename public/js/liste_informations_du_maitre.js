@@ -2,7 +2,7 @@
 
 requireAuth();
 
-const tbody = document.getElementById('tbodyMaitres');
+const tbodyMaitres = document.getElementById('tbodyMaitres');
 const message = document.getElementById('message');
 
 function showMessage(text, isError = false) {
@@ -23,12 +23,12 @@ function escapeHtml(value) {
 async function chargerMaitres() {   //----- appelle l'API ------
     try {
 
-        const res = await apiFetch('/api/Maitres'); //-- Le S --
+        const res = await apiFetch('/api/Maitre');
         const data = await res.json();
 
         if (!res.ok) throw new Error(data.message || "Erreur lors du chargement");
 
-        tbody.innerHTML = '';
+        tbodyMaitres.innerHTML = '';
         if (data.length === 0) {
             tbodyMaitres.innerHTML = '<tr><td colspan="11">Aucun propriétaire trouvé</td></tr>';
             return;
@@ -39,21 +39,20 @@ async function chargerMaitres() {   //----- appelle l'API ------
             const tr = document.createElement('tr');
 
             tr.innerHTML = `
-                <td>${maitre.idMaitre}</td>
-                <td>${escapeHtml(maitre.informationsAnimal)}</td>
-                <td>${escapeHtml(maitre.prenom)}</td>
-                <td>${escapeHtml(maitre.nomMaitre)}</td>
-                <td>${escapeHtml(maitre.telephone)}</td>
-                <td>${escapeHtml(maitre.courriel)}</td>
-                <td>${escapeHtml(maitre.ageMaitre)}</td>
-                <td>${escapeHtml(maitre.adresse)}</td>
-                <td>${escapeHtml(maitre.ville)}</td>
+                <td>${escapeHtml(maitre.Id_maitre)}</td>
+                <td>${escapeHtml(maitre.Prenom)}</td>
+                <td>${escapeHtml(maitre.Nom)}</td>
+                <td>${escapeHtml(maitre.NoTelephone)}</td>
+                <td>${escapeHtml(maitre.Courriel)}</td>
+                <td>${escapeHtml(maitre.Age)}</td>
+                <td>${escapeHtml(maitre.Adresse)}</td>
+                <td>${escapeHtml(maitre.Ville)}</td>
                 <td>
-                    <a class="btn-link" href="/edit_maitre.html?id=${maitre.idMaitre}">Modifier</a>
-                    <button class="danger" onclick="supprimerMaitre(${maitre.idMaitre})">Supprimer</button>
+                    <a class="btn-link" href="/edit_informations_du_maitre.html?id=${maitre.Id_maitre}">Modifier</a>
+                    <button class="danger" onclick="supprimerMaitre(${maitre.Id_maitre})">Supprimer</button>
                 </td>
             `;
-            tbody.appendChild(tr);
+            tbodyMaitres.appendChild(tr);
         });
     } catch (err) {
         showMessage(err.message, true);
@@ -64,7 +63,7 @@ async function supprimerMaitre(id) {
     if (!confirm('Voulez-vous vraiment supprimer ce propriétaire ?')) return;
 
     try {
-        const res = await apiFetch('/api/maitres/' + id, { //-- Le S--
+        const res = await apiFetch('/api/Maitre/' + id, {
             method: 'DELETE'
         });
 

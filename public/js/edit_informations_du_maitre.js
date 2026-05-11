@@ -11,21 +11,20 @@ function showMessage(text, isError = false) {
 
 async function chargerMaitre() {
     try {
-        const res = await apiFetch('/api/Maitres/' + id);
+        const res = await apiFetch('/api/Maitre/' + id);
         const data = await res.json();
 
         if (!res.ok) {
             throw new Error(data.message || 'Erreur lors du chargement');
         }
 
-        document.getElementById('informationsAnimal').value = data.informationsAnimal;
-        document.getElementById('prenom').value = data.prenom;
-        document.getElementById('nomMaitre').value = data.nomMaitre;
-        document.getElementById('telephone').value = data.telephone;
-        document.getElementById('courriel').value = data.courriel;
-        document.getElementById('ageMaitre').value = data.ageMaitre;
-        document.getElementById('adresse').value = data.adresse;
-        document.getElementById('ville').value = data.ville;
+        document.getElementById('prenom').value = data.Prenom;
+        document.getElementById('nomMaitre').value = data.Nom;
+        document.getElementById('telephone').value = data.NoTelephone;
+        document.getElementById('courriel').value = data.Courriel;
+        document.getElementById('ageMaitre').value = data.Age;
+        document.getElementById('adresse').value = data.Adresse;
+        document.getElementById('ville').value = data.Ville;
     } catch (err) {
         showMessage(err.message, true);
     }
@@ -35,30 +34,28 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const payload = {
-        informationsAnimal: document.getElementById('informationsAnimal').value.trim(),
-        prenom: document.getElementById('prenom').value.trim(),
-        nomMaitre: document.getElementById('nomMaitre').value.trim(),
-        telephone: document.getElementById('telephone').value.trim(),
-        courriel: document.getElementById('courriel').value.trim(),
-        ageMaitre: document.getElementById('ageMaitre').value.trim(),
-        adresse: document.getElementById('adresse').value.trim(),
-        ville: document.getElementById('ville').value.trim(),
+        Prenom: document.getElementById('prenom').value.trim(),
+        Nom: document.getElementById('nomMaitre').value.trim(),
+        NoTelephone: document.getElementById('telephone').value.trim(),
+        Courriel: document.getElementById('courriel').value.trim(),
+        Age: document.getElementById('ageMaitre').value.trim(),
+        Adresse: document.getElementById('adresse').value.trim(),
+        Ville: document.getElementById('ville').value.trim(),
     };
 //-------valider les champs obligatoires-----
-        if (!payload.informationsAnimal || !payload.prenom || !payload.nomMaitre || 
-        !payload.courriel) {
-        showMessage('Veuillez remplir tous les champs obligatoires', true);
+        if (!payload.Prenom || !payload.Nom || !payload.Courriel) {
+        showMessage('Veuillez remplir les champs prénom, nom et courriel', true);
         return;
     }
 
-    //------poids age et taille en nombre-----
-        if (isNaN(payload.ageMaitre) || isNaN(payload.telephone)) {
+    //------âge et téléphone en nombre-----
+        if (isNaN(payload.Age) || isNaN(payload.NoTelephone)) {
         showMessage('L\'âge et le téléphone doivent être des nombres', true);
         return;
     }
 
     try {
-        const res = await apiFetch('/api/Maitres/' + id, {
+        const res = await apiFetch('/api/Maitre/' + id, {
             method: 'PUT',
             body: JSON.stringify(payload)
         });
