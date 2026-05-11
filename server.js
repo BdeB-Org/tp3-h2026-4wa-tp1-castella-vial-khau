@@ -13,6 +13,10 @@ const authRoutes = require('./Routes/authRoutes');
 app.use('/api/auth', authRoutes);
 
 //-----connexion route informations de l'animal ---- Sandra
+const maitreRoutes = require("./Routes/informations_du_maitre_Route");
+app.use("/api", maitreRoutes);
+
+//-----connexion route informations de l'animal ---- Sandra
 const animalRoutes = require("./Routes/informations_de_lanimal_Route");
 app.use("/api", animalRoutes);
 

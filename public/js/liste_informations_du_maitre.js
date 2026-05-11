@@ -1,4 +1,4 @@
-//-----------liste information du propriétaire - Iléona ----------
+//----------- liste information du propriétaire - Iléona ----------
 
 requireAuth();
 
@@ -23,7 +23,7 @@ function escapeHtml(value) {
 async function chargerMaitres() {   //----- appelle l'API ------
     try {
 
-        const res = await apiFetch('/api/Maitres');
+        const res = await apiFetch('/api/Maitres'); //-- Le S --
         const data = await res.json();
 
         if (!res.ok) throw new Error(data.message || "Erreur lors du chargement");
@@ -40,11 +40,12 @@ async function chargerMaitres() {   //----- appelle l'API ------
 
             tr.innerHTML = `
                 <td>${maitre.idMaitre}</td>
-                <td>${escapeHtml(maitre.informationsMaitre)}</td>
-                <td>${escapeHtml(maitre.nom)}</td>
-                <td>${escapeHtml(maitre.noTelephone)}</td>
+                <td>${escapeHtml(maitre.informationsAnimal)}</td>
+                <td>${escapeHtml(maitre.prenom)}</td>
+                <td>${escapeHtml(maitre.nomMaitre)}</td>
+                <td>${escapeHtml(maitre.telephone)}</td>
                 <td>${escapeHtml(maitre.courriel)}</td>
-                <td>${escapeHtml(maitre.age)}</td>
+                <td>${escapeHtml(maitre.ageMaitre)}</td>
                 <td>${escapeHtml(maitre.adresse)}</td>
                 <td>${escapeHtml(maitre.ville)}</td>
                 <td>
@@ -63,7 +64,7 @@ async function supprimerMaitre(id) {
     if (!confirm('Voulez-vous vraiment supprimer ce propriétaire ?')) return;
 
     try {
-        const res = await apiFetch('/api/maitres/' + id, {
+        const res = await apiFetch('/api/maitres/' + id, { //-- Le S--
             method: 'DELETE'
         });
 

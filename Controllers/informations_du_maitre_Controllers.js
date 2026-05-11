@@ -7,6 +7,16 @@ exports.getMaitre = (req,res) => {
     });
 };
 
+//Controller Get by ID
+exports.getMaitreById = (req, res) => {
+    const id = req.params.id;
+    db.get("SELECT * FROM Information_du_maitre WHERE Id_maitre=?", [id], (err, row) => {
+        if (err) return res.status(500).json({ erreur: err.message });
+        if (!row) return res.status(404).json({ message: "Maître non trouvé" });
+        res.json(row);
+    });
+};
+
 //Controller Post
 exports.addMaitre = (req,res) => {
     const Prenom = req.body.Prenom;
