@@ -6,7 +6,7 @@ const messageAnimal = document.getElementById('messageAnimal');
 const formAjoutAnimal = document.getElementById('formAjoutAnimal');
 const tbodyAnimaux = document.getElementById('tbodyAnimaux');
 
-function showMessage(text, isError = false) {
+function showMessageAnimal(text, isError = false) {
     messageAnimal.innerHTML = `<div class="message ${isError ? 'error' : ''}">${text}</div>`;
 }
 
@@ -49,7 +49,7 @@ async function chargerAnimaux() {
             tbodyAnimaux.appendChild(tr);
         });
     } catch (err) {
-        showMessage(err.message, true);
+        showMessageAnimal(err.message, true);
     }
 }
 
@@ -67,16 +67,24 @@ formAjoutAnimal.addEventListener('submit', async (e) => {
         taille: document.getElementById('taille').value.trim(),
         poids: document.getElementById('poids').value.trim(),
     };
-//-------affiche un message si on soumet un formulaire vide : remplir les champs obligatoires------
-        if (!payload.informationsMaitre || !payload.noCollier || !payload.nom || 
-        !payload.type || !payload.race || !payload.genre || 
-        !payload.age || !payload.taille || !payload.poids) {
-        showMessage('Veuillez remplir tous les champs obligatoires', true);
+
+    //-------champs obligatoires : ID propriétaire, nom et type------
+    if (!payload.informationsMaitre || !payload.nom || !payload.type) {
+        showMessageAnimal('L\'ID du propriétaire, le nom et le type de l\'animal sont obligatoires', true);
         return;
     }
-//---------valide que age taille et poids sont des nombres----
-        if (isNaN(payload.age) || isNaN(payload.taille) || isNaN(payload.poids)) {
-        showMessage('L\'âge, la taille et le poids doivent être des nombres', true);
+
+    //------age taille et poids doivent être des nombres s'ils sont remplis----
+    if (payload.age && isNaN(payload.age)) {
+        showMessageAnimal('L\'âge doit être un nombre', true);
+        return;
+    }
+    if (payload.taille && isNaN(payload.taille)) {
+        showMessageAnimal('La taille doit être un nombre', true);
+        return;
+    }
+    if (payload.poids && isNaN(payload.poids)) {
+        showMessageAnimal('Le poids doit être un nombre', true);
         return;
     }
 
@@ -93,10 +101,10 @@ formAjoutAnimal.addEventListener('submit', async (e) => {
         }
 
         formAjoutAnimal.reset();
-        showMessage('Animal ajouté avec succès');
+        showMessageAnimal('Animal ajouté avec succès');
         chargerAnimaux();
     } catch (err) {
-        showMessage(err.message, true);
+        showMessageAnimal(err.message, true);
     }
 });
 
@@ -114,10 +122,10 @@ async function supprimerAnimal(id) {
             throw new Error(data.message || 'Erreur lors de la suppression');
         }
 
-        showMessage(data.message);
+        showMessageAnimal(data.message);
         chargerAnimaux();
     } catch (err) {
-        showMessage(err.message, true);
+        showMessageAnimal(err.message, true);
     }
 }
 
